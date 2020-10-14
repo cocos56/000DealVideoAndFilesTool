@@ -1,5 +1,5 @@
 from re import compile
-from os.path import basename, dirname, join
+from os.path import basename, dirname, join, split
 from os import rename
 from Path.api import getFiles, getDirs
 from .getName import getName
@@ -26,13 +26,22 @@ def delFsStrWithRe(pattern, exe=False):
 		cnt += 1
 
 
-def delFsStr(oldStr, newStr='', exe=False):
+def delFilesNameStr(oldStr, newStr='', exe=False):
 	cnt = 1
 	for i in getFiles():
-		# print(getName(i))
 		if oldStr not in getName(i):
 			continue
 		newName = getName(i).replace(oldStr, newStr, 1)
+		setNewName(newName, i, cnt, exe)
+		cnt += 1
+
+
+def delFilesStr(oldStr, newStr='', exe=False):
+	cnt = 1
+	for i in getFiles():
+		if oldStr not in split(i)[1]:
+			continue
+		newName = split(i)[1].replace(oldStr, newStr, 1)
 		setNewName(newName, i, cnt, exe)
 		cnt += 1
 

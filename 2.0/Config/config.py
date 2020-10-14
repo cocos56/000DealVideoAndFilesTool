@@ -6,7 +6,7 @@ videoSuffixes = [
 
 workDirs = [r'''
 
-H:\OneDrive - office 365 students and teachers\视频教程\GO\2019千锋GO语言超详细入门教程（笔记+课件+源码）
+G:\OneDrive - 希望英语衡阳校区\学习视频\
 
 '''[2:-2]
 ]

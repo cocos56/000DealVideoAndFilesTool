@@ -1,4 +1,5 @@
-from Name.api import delFsStrWithRe, delFsStr, delDsStr, stripFileName
+from Name.api import delFsStrWithRe, delFilesNameStr,\
+    delFilesStr, delDsStr, stripFileName
 from Storer.api import commit
 from datetime import datetime
 
@@ -12,17 +13,19 @@ pat = r'(.+)\(.+\)'
 pat = r'\d+.(.+)\(.+'
 # delFsStrWithRe(pat, exe)
 
-string = r'千锋Go语言教程：'
+string = r'_coco56_speed=1.mp4'
 
-delFsStr(string, r'', exe)
+delFilesStr(string, r'', exe)
+
+# delFilesNameStr(string, r'', exe)
 
 # stripFileName('', exe)
 
-while True:
-    if delDsStr(string, r'', exe) == 'FileNotFoundError':
-        pass
-    else:
-        break
+# while True:
+#     if delDsStr(string, r'', exe) == 'FileNotFoundError':
+#         pass
+#     else:
+#         break
 
 print('总历时：', datetime.now() - now)
 commit()
