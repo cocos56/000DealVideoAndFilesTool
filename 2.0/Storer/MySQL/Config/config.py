@@ -23,6 +23,14 @@ class Timestamp:
     minute = str(_dt.minute).rjust(2, '0')
     second = str(_dt.second).rjust(2, '0')
 
+    def __init__(self, year, month, day, hour, minute, second):
+        self.year = year
+        self.month = month
+        self.day = day
+        self.hour = hour
+        self.minute = minute
+        self.second = second
+
 
 class Init:
     conn = None

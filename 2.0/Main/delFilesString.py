@@ -12,9 +12,9 @@ pat = r'(.+)\(.+\)'
 pat = r'\d+.(.+)\(.+'
 # delFsStrWithRe(pat, exe)
 
-string = r'[www.vipsrc.com]'
+string = r'千锋Go语言教程：'
 
-# delFsStr(string, r'', exe)
+delFsStr(string, r'', exe)
 
 # stripFileName('', exe)
 
