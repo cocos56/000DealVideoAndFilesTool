@@ -5,7 +5,9 @@ from Storer.api import commit
 now = datetime.now()
 
 speed = 1
-speed = 1.25
+speed = 1.1
+speed = 1.2
+# speed = 1.25
 # speed = 1.28
 # speed = 1.6
 # speed = 2

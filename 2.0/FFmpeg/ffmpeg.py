@@ -56,7 +56,7 @@ class FFmpeg:
             self.cmd += ' -loglevel quiet'
         # initThread
         self.cmd += ' -threads %d' % self.threads
-        self.cmd += ' -i "%s"' % self.i
+        self.cmd += ' -i "%s" -max_muxing_queue_size 1024' % self.i
         # initFPS(self):
         # initSpeed(self):
         if self.speed == 1:
