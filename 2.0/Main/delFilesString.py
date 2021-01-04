@@ -13,19 +13,19 @@ pat = r'(.+)\(.+\)'
 pat = r'\d+.(.+)\(.+'
 # delFsStrWithRe(pat, exe)
 
-string = r'会员版(2.0)-就业课-'
+string = r'w.avi'
 
-# delFilesStr(string, r'', exe)
+delFilesStr(string, r'', exe)
 
 # delFilesNameStr(string, r'', exe)
 
 # stripFileName('', exe)
 
-while True:
-    if delDsStr(string, r'', exe) == 'FileNotFoundError':
-        pass
-    else:
-        break
+# while True:
+#     if delDsStr(string, r'', exe) == 'FileNotFoundError':
+#         pass
+#     else:
+#         break
 
 print('总历时：', datetime.now() - now)
 commit()

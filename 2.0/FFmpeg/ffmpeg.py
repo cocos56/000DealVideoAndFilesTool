@@ -23,13 +23,13 @@ class FFmpeg:
 
     def __init__(self, i, speed, fps, threads, quiet):
         suffix = '_coco56_speed=%s.mp4' % str(speed)
+        self.o = splitext(i)[0] + suffix
         if suffix in split(i)[1]:
             return
         if exists(i) and isfile(i):
             self.i = i
         else:
             raise ParameterError(i, '输入的路径不存在或者不是文件的路径')
-        self.o = splitext(i)[0] + suffix
         self.video = Video(i)
         self.fps = fps if self.video.fps > fps else self.video.fps
         self.speed = speed

@@ -26,7 +26,12 @@ def fixUnicodeDecodeError(videoPath):
 	if splitext(videoPath)[1] == suffix:
 		suffix = '.avi'
 	newVideo = splitext(videoPath)[0] + suffix
-	cmd = 'ffmpeg -loglevel quiet -i "%s" "%s"' % (videoPath, newVideo)
+	metadata = ''
+	# metadata += ' -metadata title="" -metadata author="" -metadata album_artist="" -metadata album="" '
+	# metadata += '-metadata grouping="" -metadata composer="" -metadata year="" -metadata comment="" '
+	# metadata += '-metadata genre="" -metadata copyright="" -metadata description="" -metadata synopsis="" '
+	# metadata += '-metadata show="" -metadata episode_id="" -metadata network="" -metadata lyrics=""'
+	cmd = 'ffmpeg -loglevel quiet -i "%s"%s "%s"' % (videoPath, metadata, newVideo)
 	print(cmd)
 	system(cmd)
 	if exists(newVideo) and Video.isVideo(newVideo):
@@ -75,8 +80,12 @@ class Video:
 			raise VideoDecodeError("'utf-8' codec can't decode : invalid start byte")
 		self.audio = clip.audio
 		self.duration = clip.duration  # 视频时长（s:秒）
-		self.fps = clip.fps
-		# self.fps = cap.get(cv2.CAP_PROP_FPS)
+		if 0 < clip.fps < 120:
+			self.fps = clip.fps
+		elif 0 < cap.get(cv2.CAP_PROP_FPS) < 120:
+			self.fps = cap.get(cv2.CAP_PROP_FPS)
+		else:
+			self.fps = 30
 		# print(self.fps)
 		self.width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
 		self.height = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)

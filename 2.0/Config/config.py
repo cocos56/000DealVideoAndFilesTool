@@ -6,7 +6,7 @@ videoSuffixes = [
 
 workDirs = [r'''
 
-H:\OneDrive - office 365 students and teachers\视频教程\Java\黑马19年Java全套\00 讲义+笔记+资料
+D:\s\Doc\Tencent Files\1679026015\FileRecv\996V0.0_20201227
 
 '''[2:-2]
 ]
